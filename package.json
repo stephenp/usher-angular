@@ -11,12 +11,14 @@
   },
   "scripts": {
     "postinstall": "bower install",
-
     "prestart": "npm install",
     "start": "http-server -a 0.0.0.0 -p 8000",
-
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update"
-
+  },
+  "dependencies": {
+    "express": "^4.11.2",
+    "cors": "^2.5.3",
+    "request": "^2.53.0"
   }
 }

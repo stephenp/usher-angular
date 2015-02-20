@@ -1,0 +1,16 @@
+<div id="episodes">
+    <h1>Airing Today</h1>
+        <ul>
+            <li ng-repeat="show in today">
+                <h2>{{show.show_name}}<span class="date">{{show.airs}}</span></h2>
+                <strong>{{show.ep_name}}</strong><p>{{show.ep_plot}}</p>
+            </li>
+        </ul>
+    <h1>Coming Soon</h1>
+        <ul>
+            <li ng-repeat="show in soon">
+                <h2>{{show.show_name}}<span class="date">{{show.airs}}</span></h2>
+                <strong>{{show.ep_name}}</strong><p>{{show.ep_plot}}</p>
+            </li>
+        </ul>
+</div>

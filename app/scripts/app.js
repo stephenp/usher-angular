@@ -1,3 +1,24 @@
+// Angular
+var usherApp = angular.module('usherApp', [
+  'ngRoute'
+]);
+
+usherApp.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: '/app/partials/airing.html',
+        controller: 'airingCtrl'
+      }).
+      when('/browse', {
+        templateUrl: '/app/partials/browse.html',
+        controller: 'browseCtrl'
+      }).
+      otherwise({
+        redirectTo: '/404'
+      });
+  }]);
+
 // The LOCAL IP address of the plex client
 // NOTE: This only works when you are on the same network as the server!
 var host = "http://192.168.0.132";
