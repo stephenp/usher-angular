@@ -1,0 +1,444 @@
+/* Basics */
+body {
+    background: url('/app/images/backgrounds/hollywood.jpg') center top no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font: 0.9em/1.75em "Titillium Web", "Lucida Grande", "Verdana", "Arial", sans-serif;
+    color: #1e1e1e;
+    margin: 0; 
+    padding-bottom: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #606c88;
+}
+
+nav ol {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+
+nav ol li {
+    opacity: 0;
+    display: inline;
+}
+
+nav ol li a {
+    display: inline-block;
+    color: #353535;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+
+    font-weight: bold;
+    font-size: 23px;
+    margin: 0 15px 0 0;
+    width: 16px;
+    padding: 9px;
+    transition: text-shadow 100ms linear;
+    -moz-transition: text-shadow 100ms linear; /* Firefox 4 */
+    -webkit-transition: text-shadow 100ms linear; /* Safari and Chrome */
+    -o-transition: text-shadow 100ms linear; /* Opera */
+    
+    -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+    
+}
+
+nav ol li a:hover {
+    color: #4f4f4f;
+}
+
+/* Regular pages */
+#content {
+    padding: 76px 25px;
+}
+
+table#filelist {
+    margin-left: -19px;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 10px 0;
+    width: auto;
+}
+
+table#filelist * {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+table#filelist td:nth-child(1) {
+    width: auto;
+}
+
+table#filelist td {
+    padding: 5px 25px;
+    font-size: 16px;
+    word-break: break-all;
+}
+
+table#filelist td i {
+    margin-right: 8px; /* Match padding above */
+}
+
+table#filelist td span {
+    width: 100%;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Reusable */
+.modal, .alert {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+}
+
+.modal.transparent, .alert {
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid transparent;
+}
+
+.modal img.fullsize {
+    width: 100%;
+    height: auto;
+}
+
+.button {
+    font-family: "Lucida Grande", "Verdana", "Arial", sans-serif;
+    cursor: default;
+    color: #353535;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    padding: 8px;
+
+    background: rgba(96, 108, 136, 0.75); /* Old browsers */
+}
+
+
+/* Login screen */
+body.login {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Left and right "splitting panes" */
+body.login:before,
+body.login:after {
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    content: "";
+    z-index: 1;
+    display: block;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: width 650ms ease 600ms;
+       -moz-transition: width 650ms ease 600ms;
+         -o-transition: width 650ms ease 600ms;
+            transition: width 650ms ease 600ms;
+}
+
+body.login:before {
+    left: 0;
+}
+
+body.login:after {
+    right: 0;
+}
+
+/* Line drawn down the middle */
+#splitter {
+    background: rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 0; left: 50%;
+    margin-left: -1px;
+    width: 2px;
+    height: 0;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: height 150ms ease-in 250ms, opacity 0ms linear 600ms;
+       -moz-transition: height 150ms ease-in 250ms, opacity 0ms linear 600ms;
+         -o-transition: height 150ms ease-in 250ms, opacity 0ms linear 600ms;
+            transition: height 150ms ease-in 250ms, opacity 0ms linear 600ms;
+}
+
+#login {
+    position: absolute;
+    top: 50%; left: 50%;
+    padding: 0;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    text-align: center;
+    z-index: 2;
+}
+
+#avatar,
+#password,
+#login label {
+    opacity: 0;
+}
+
+#avatar {
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-top: -51px;
+    margin-left: -51px;
+    width: 90px; height: 90px;
+    display: block;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px;
+    border-radius: 90px;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: opacity 350ms linear, margin 500ms ease 600ms, background 500ms linear 600ms;
+       -moz-transition: opacity 350ms linear, margin 500ms ease 600ms, background 500ms linear 600ms;
+         -o-transition: opacity 350ms linear, margin 500ms ease 600ms, background 500ms linear 600ms;
+            transition: opacity 350ms linear, margin 500ms ease 600ms, background 500ms linear 600ms;
+}
+
+#password {
+    font-size: 30px;
+    width: 100%;
+    margin-top: 178px;
+    padding: 8px;
+    box-sizing: border-box;
+    color: #353535;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    outline: none;
+    box-shadow:         0px 0px 15px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow:    0px 0px 15px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: opacity 1000ms ease 600ms, margin 500ms ease 625ms;
+       -moz-transition: opacity 1000ms ease 600ms, margin 500ms ease 625ms;
+         -o-transition: opacity 1000ms ease 600ms, margin 500ms ease 625ms;
+            transition: opacity 1000ms ease 600ms, margin 500ms ease 625ms;
+}
+
+#login label {
+    display: block;
+    margin-top: -10px;
+    color: #353535;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-transition: opacity 1000ms ease 1000ms, margin 500ms ease 1000ms;
+       -moz-transition: opacity 1000ms ease 1000ms, margin 500ms ease 1000ms;
+         -o-transition: opacity 1000ms ease 1000ms, margin 500ms ease 1000ms;
+            transition: opacity 1000ms ease 1000ms, margin 500ms ease 1000ms;
+}
+
+/* Page is loaded, let's animate! */
+.loaded #avatar{
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    margin-top: -145px;
+}
+
+.login.loaded #splitter {
+    height: 100%;
+    opacity: 0;
+}
+
+.login.loaded:before {
+    width: 0;
+}
+
+.login.loaded:after {
+    width: 0;
+}
+
+.login.loaded #password {
+    opacity: 1;
+    margin-top: 84px;
+}
+
+.login.loaded #login label {
+    opacity: 1;
+    margin-top: 5px;
+}
+
+
+/* Upcoming widget */
+
+#episodes {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40%;
+    height: 100%;
+    color: #353535;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+#episodes h1 {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+#episodes ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#episodes ul li {
+    margin: 25px 0 25px 0;
+    padding: 15px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#episodes ul li h2 {
+    margin: 0 0 0.25em 0;
+    font-size: 1.3em;
+}
+
+#episodes ul li h2 span {
+    font-size: 0.6em;
+    float: right;
+}
+
+#episodes ul li p {
+    line-height: 1.4em;
+    margin: 0;
+}
+
+#stats-bar {
+    font-family: "Verdana", "Lucida Grande", "Trebuchet MS", sans-serif;
+    font-size: 11px;
+    text-align: left;
+    color: #E0E0E0;
+    text-shadow: 0 -1px 0 #000;
+    position: fixed;
+    bottom: 25px; right: 0px;
+    width: auto;
+    margin: 0; padding: 3px 25px;
+    box-sizing: border-box;
+    float: left;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 75px 30px rgba(0,0,0,0.5);
+}
+
+#stats-bar li {
+    display: block;
+    margin-right: 10px;
+}
+
+#stats-bar li:first-child {
+    margin-left: 0;
+}
+
+#stats-bar li i {
+    font-size: 14px;
+}
+
+input.button:hover, a.button:hover, .button a:hover {
+    cursor: pointer;
+    -moz-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.40);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.40);
+    box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.40);
+}
+
+input.button:active, a.button:active, .button a:active {
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.20);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.20);
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.20);
+}
+
+.button.small {
+    font-size: 9px;
+    text-transform: uppercase;
+    padding: 3px 5px;
+}
+
+.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:""}.clearfix:after{clear:both}
+
+#serverAlert {
+    display: none; /* for now */
+    position: fixed;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+#serverAlert .alert {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 5px 10px;
+    margin: 25px 0;
+    font-size: 0.75em;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    width: 100%;
+}
+
+#serverAlert .alert p {
+    margin: 5px 0;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+#plexControls {
+    z-index: 1000;
+}
+
+
+@media only screen and (max-width: 650px) {
+    html {
+      -webkit-text-size-adjust: none;   
+    }
+    
+    body {
+        padding-bottom: 0;
+    }
+
+    nav {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    nav ol {
+        position: static;
+    }
+
+    nav:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    #episodes {
+        position: static;
+        clear: both;
+        width: auto;
+        height: auto;
+        margin: 20px 10px;
+    }
+
+    #episodes h1 {
+        text-align: center;
+    }
+
+    #episodes ul li {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    #stats-bar {
+        position: static;
+        margin-top: 20px;
+    }
+
+
+    #overlay {
+        display: none !important;
+    }
+
+}
