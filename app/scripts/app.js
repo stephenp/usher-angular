@@ -23,32 +23,6 @@ usherApp.config(['$routeProvider',
 // NOTE: This only works when you are on the same network as the server!
 var host = "http://192.168.0.132";
 
-function statsUpdater() {
-    $.ajax({
-      url: "/rsrc/ajax/stats.php",
-      dataType: "json"
-    }).done(function( data ) {
-      $("#statsLoad").html(data.load);
-      $("#statsUptime").html(data.uptime);
-      $("#statsRaidSize").html(data.raidSize);
-      $("#freespace").html(data.freeSpace);
-      $("#usedspace").html(data.usedSpace);
-
-      if (data.raidRebuild){
-          $("#raidRebuild").html(data.raidRebuild);
-          $("#raidRebuild").parent("li").show();
-      }
-
-      $("#sendSpeed").html(data.sendSpeed);
-      $("#receiveSpeed").html(data.receiveSpeed);
-      $("#weather_temp_f").html(data.temp_f);
-      $("#weather_pop").html(data.pop);
-      $("#weather_sunset").html(data.sunset);
-      
-      setTimeout(statsUpdater, 1250);
-    }); 
-};
-
 function plexGestures(){
 
     if(plexfocus == "true"){
@@ -106,57 +80,13 @@ function plexGestures(){
     };
 }
 
-
-
-$(document).ready(function(){
-
-    // Run functions on DOM ready
-    //abstract this out to angular
-    //statsUpdater();
-
-    // AJAX Login
-    $("#login").submit(function(event) {
-
-        event.preventDefault();
-
-        $.post('/rsrc/ajax/auth.php', $('#login').serialize(), function(data) {
-
-            if(data) {
-                console.log(data);
-                $("#login").fadeOut();
-                location.reload();
-            } else {
-                // LOGIN FAILED
-                console.log(data);
-                $("#login").addClass("error");
-                $("#password").val("");
-
-                $("#login.error")
-                    .animate({ left: "50.0%" }, 200)
-                    .animate({ left: "49.5%" }, 75 )
-                    .animate({ left: "50.5%" }, 75 )
-                    .animate({ left: "49.5%" }, 75 )
-                    .animate({ left: "50.5%" }, 75 )
-                    .animate({ left: "49.5%" }, 75 )
-                    .animate({ left: "50.5%" }, 75 )
-                    .animate({ left: "50.0%" }, 200);
-            }
-
-        });
-
-    });
-
-});
-
 $(window).load(function(){
 
     var plexFocus = 'false',
         stallFor;   
     
     $("body").addClass("loaded");
-    
-    $("#password").focus();
-        
+            
     $("nav ol").fadeIn(200, function() {
         
         $("nav ol li").each(function (id) {

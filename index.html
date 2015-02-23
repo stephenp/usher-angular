@@ -32,16 +32,34 @@
             <div ng-view></div>
 
             <ul id="stats-bar" ng-controller="statsCtrl">
-                <li><i class="fa fa-tachometer"></i> <span id="statsLoad">{{stats.load[0] | truncateTo:2}}, {{stats.load[1] | truncateTo:2}}, {{stats.load[2] | truncateTo:2}}</span></li>
-                <li style="display: none;"><i class="fa fa-wrench"></i> <span id="raidRebuild"></span></li>
-                <li><i class="fa fa-clock-o"></i> <span id="statsUptime">{{stats.uptime}}</span></li>
-                <li><i class="fa fa-hdd-o"></i> <span id="usedspace">...</span> of <span id="statsRaidSize">...</span> used</li>
-                <li><i class="fa fa-hdd-o"></i> <span id="freespace">...</span> free</li>
-                <li><i class="fa fa-arrow-down"></i> <span id="receiveSpeed">0.00Mb/sec</span></li>
-                <li><i class="fa fa-arrow-up"></i> <span id="sendSpeed">0.00Mb/sec</span></li>
-                <li><i class="fa fa-sun-o"></i> <span id="weather_temp_f">00.0</span>&deg; F</li>
-                <li><i class="fa fa-umbrella"></i> <span id="weather_pop">0</span>%</li>
-                <li><i class="fa fa-moon-o"></i> <span id="weather_sunset">0:00</span></li>
+                <li>
+                    <i class="fa fa-tachometer"></i>
+                    <span id="statsLoad">{{stats.load[0] | truncateTo:2}}, {{stats.load[1] | truncateTo:2}}, {{stats.load[2] | truncateTo:2}}</span>
+                </li>
+                <li>
+                    <i class="fa fa-clock-o"></i>
+                    <span id="statsUptime">{{stats.uptime / 60 / 60 / 24 | number:2}} days</span>
+                </li>
+                <li>
+                    <i class="fa fa-arrow-down"></i>
+                    <span id="receiveSpeed">0.00Mb/sec</span>
+                </li>
+                <li>
+                    <i class="fa fa-arrow-up"></i>
+                    <span id="sendSpeed">0.00Mb/sec</span>
+                </li>
+                <li>
+                    <i class="fa fa-sun-o"></i>
+                    <span id="weather_temp_f">00.0</span>&deg; F
+                </li>
+                <li>
+                    <i class="fa fa-umbrella"></i>
+                    <span id="weather_pop">0</span>%
+                </li>
+                <li>
+                    <i class="fa fa-moon-o"></i>
+                    <span id="weather_sunset">0:00</span>
+                </li>
             </ul>
         </body>
 

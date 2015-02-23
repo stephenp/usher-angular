@@ -13,6 +13,15 @@ app.get('/stats', function(req, res){
     });
 });
 
+app.get('/weather', function(req, res){
+    request({
+        url: 'http://api.wunderground.com/api/0a4bf68d2d38fcab/geolookup/conditions/q/CA/Sacramento.json',
+        json: true
+    }, function(err, response, body) {
+        res.json(body.data);
+    });
+});
+
 app.get('/airing', function(req, res){
     request({
         url: 'http://media.stephenpontes.com:8081/api/453f3e19ecac64c3204d238ba770661f/?cmd=future&sort=date',
